@@ -651,6 +651,9 @@ btfs_init(struct fuse_conn_info *conn) {
 	pack.set_int(pack.upload_rate_limit, params.max_upload_rate * 1024);
 	pack.set_int(pack.alert_mask, alerts);
 
+	pack.set_str(pack.user_agent, "Transmission/2.94 (d8e60ee44f)");
+	pack.set_str(pack.peer_fingerprint, "-TR2940-");
+
 	session = new libtorrent::session(pack, flags);
 
 #if LIBTORRENT_VERSION_NUM < 10101
